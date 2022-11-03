@@ -4,10 +4,10 @@ import Authentication from "./pages/Authentication/Authentication";
 const App = () => {
   return (
     <div className="text-lg flex">
-      <div className="sm:min-w-[19%] h-screen">
+      <div className="hidden sm:flex sm:min-w-[256px] h-screen">
         <Sidebar />
       </div>
-      <div className="sm:w-[81%] w-screen h-screen">
+      <div className="sm:w-full w-screen h-screen">
         <Authentication />
       </div>
     </div>

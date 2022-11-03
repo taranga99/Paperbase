@@ -6,7 +6,7 @@ const Sidebar = () => {
   const [selectedPage, setSelectedPage] = useState("Authentication");
 
   return (
-    <div className="hidden flex-col bg-[#081627] w-full h-full sm:flex ">
+    <div className="flex-col bg-[#081627] w-full h-full ">
       <h1 className="wrapper text-2xl border-content w-full text-white ">
         Paperbase
       </h1>
