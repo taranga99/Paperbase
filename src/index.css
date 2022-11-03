@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .wrapper {
+    @apply px-6 py-3;
+  }
+
+  .flex-content {
+    @apply flex items-center space-x-3 w-full;
+  }
+
+  .border-content {
+    @apply border-b border-gray-700;
+  }
+}
