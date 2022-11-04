@@ -7,6 +7,21 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 const Authentication = () => {
   const [selectedLink, setSelectedLink] = useState("users");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [tabData, setTabData] = useState([
+    { id: 1, title: "Users", selected: false },
+    { id: 2, title: "Sign-in method", selected: false },
+    { id: 3, title: "Templates", selected: false },
+    { id: 4, title: "Usage", selected: false },
+  ]);
+
+  const changeTabData = (item: any) => {
+    const newTabData = tabData.map((data) =>
+      data.id === item.id
+        ? { ...data, selected: true }
+        : { ...data, selected: false }
+    );
+    setTabData(newTabData);
+  };
 
   return (
     <div className="w-full h-full">
@@ -54,49 +69,22 @@ const Authentication = () => {
           </div>
         </div>
         <div className="flex list-none text-base font-bold space-x-9">
-          <li
-            onClick={() => setSelectedLink("users")}
-            className={`pb-4 cursor-pointer ${
-              selectedLink === "users"
-                ? "border-b-2 border-white text-white"
-                : "text-[#ffffffb2]"
-            }`}
-          >
-            Users
-          </li>
-          <li
-            onClick={() => setSelectedLink("sign-in")}
-            className={`pb-4 cursor-pointer ${
-              selectedLink === "sign-in"
-                ? "border-b-2 border-white text-white"
-                : "text-[#ffffffb2]"
-            }`}
-          >
-            Sign-in method
-          </li>
-          <li
-            onClick={() => setSelectedLink("templates")}
-            className={`pb-4 cursor-pointer ${
-              selectedLink === "templates"
-                ? "border-b-2 border-white text-white"
-                : "text-[#ffffffb2]"
-            }`}
-          >
-            Templates
-          </li>
-          <li
-            onClick={() => setSelectedLink("usage")}
-            className={`pb-4 cursor-pointer ${
-              selectedLink === "usage"
-                ? "border-b-2 border-white text-white"
-                : "text-[#ffffffb2]"
-            }`}
-          >
-            Usage
-          </li>
+          {tabData.map((item) => (
+            <li
+              key={item.id}
+              onClick={() => changeTabData(item)}
+              className={`pb-4 cursor-pointer ${
+                item.selected
+                  ? "border-b-2 border-white text-white"
+                  : "text-[#ffffffb2]"
+              }`}
+            >
+              {item.title}
+            </li>
+          ))}
         </div>
       </div>
-      <div className="bg-[#eaeff1] h-full flex justify-center ">
+      <div className="bg-[#eaeff1] h-full flex justify-center">
         <div className="wrapper w-full overflow-hidden drop-shadow-md ">
           <div className="w-[90%] mx-auto h-40 rounded-md overflow-hidden mt-7 ">
             <div className="bg-gray-200 h-[30%] flex px-8 py-3 items-center space-x-5">
