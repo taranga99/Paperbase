@@ -5,7 +5,6 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import Sidebar from "../../components/Sidebar/Sidebar";
 
 const Authentication = () => {
-  const [selectedLink, setSelectedLink] = useState("users");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const [tabData, setTabData] = useState([
     { id: 1, title: "Users", selected: false },
@@ -24,7 +23,7 @@ const Authentication = () => {
   };
 
   return (
-    <div className="w-full h-full">
+    <div className="flex flex-col w-full h-screen">
       <div className="wrapper pb-0 bg-[#009be5] w-full h-40 flex flex-col justify-between">
         <div className="flex justify-between sm:justify-end items-center">
           <div
@@ -84,7 +83,7 @@ const Authentication = () => {
           ))}
         </div>
       </div>
-      <div className="bg-[#eaeff1] h-full flex justify-center">
+      <div className="bg-[#eaeff1] flex-1 flex justify-center">
         <div className="wrapper w-full overflow-hidden drop-shadow-md ">
           <div className="w-[90%] mx-auto h-40 rounded-md overflow-hidden mt-7 ">
             <div className="bg-gray-200 h-[30%] flex px-8 py-3 items-center space-x-5">
